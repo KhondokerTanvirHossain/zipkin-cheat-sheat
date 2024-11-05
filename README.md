@@ -78,6 +78,11 @@ services:
       - esdata:/usr/share/elasticsearch/data
       - /path/to/your/snapshot/repo:/usr/share/elasticsearch/snapshots
       - /path/to/your/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   zipkin:
     image: openzipkin/zipkin
@@ -88,7 +93,8 @@ services:
     ports:
       - "9411:9411"
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
 
 volumes:
   esdata:
