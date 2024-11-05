@@ -125,6 +125,10 @@ curl -X PUT "localhost:9200/_snapshot/my_backup" -H 'Content-Type: application/j
 
 Create a snapshot of your Elasticsearch indices:
 
+```sh
+curl -X PUT "localhost:9200/_snapshot/my_backup/snapshot_1?wait_for_completion=true"
+```
+
 ### Step 7: Restore a Snapshot
 
 To restore a snapshot, use the following command:
