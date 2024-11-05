@@ -20,7 +20,7 @@ mkdir -p /path/to/your/elasticsearch/data
 
 ### Step 2: Create elasticsearch.yml
 
-Create a file named elasticsearch.yml with the following content:
+Create a file named `elasticsearch.yml` with the following content:
 
 ```yml
 # Elasticsearch configuration
@@ -59,7 +59,7 @@ discovery.type: single-node
 
 ### Step 3: Create docker-compose.yml
 
-Create a file named docker-compose.yml with the following content:
+Create a file named `docker-compose.yml` with the following content:
 
 ```yml
 version: '3.8'
